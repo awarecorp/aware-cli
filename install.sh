@@ -83,9 +83,9 @@ echo "Get started with:"
 echo "  aware login"
 echo "  aware configure"
 echo ""
-INSTALLED_VERSION=$(aware --version 2>/dev/null || echo 'unknown')
-echo "Version: $INSTALLED_VERSION (${BRANCH})"
-
-echo "  aware configure"
+echo "For more commands, run:"
+echo "  aware --help"
 echo ""
-echo "Version: $(aware --version 2>/dev/null || echo 'unknown')"
+INSTALLED_VERSION=$(aware --version 2>/dev/null || echo 'unknown')
+echo "Installed version: $INSTALLED_VERSION"
+echo "Branch: ${BRANCH}"
