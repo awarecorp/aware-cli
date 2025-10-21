@@ -1,0 +1,8 @@
+# Placeholder for develop latest binaries
+# Actual binaries will be uploaded by GitHub Actions
+
+This directory contains the latest develop build binaries:
+- aware-darwin-amd64
+- aware-darwin-arm64
+- aware-linux-amd64
+- aware-linux-arm64
