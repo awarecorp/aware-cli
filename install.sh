@@ -4,9 +4,8 @@ set -e
 
 INSTALL_DIR="${INSTALL_DIR:-/usr/local/bin}"
 BINARY_NAME="aware"
-REPO="awarecorp/aware-cli"  # Public 배포 저장소
+REPO="awarecorp/aware-cli"
 VERSION="${VERSION:-latest}"
-BRANCH="${BRANCH:-stable}"  # stable or develop
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -35,14 +34,14 @@ case $OS in
         ;;
 esac
 
-# Determine download path based on branch and version
+# Determine download path
 if [ "$VERSION" = "latest" ]; then
-    DOWNLOAD_URL="https://raw.githubusercontent.com/${REPO}/main/releases/${BRANCH}/latest/aware-${OS}-${ARCH}"
+    DOWNLOAD_URL="https://raw.githubusercontent.com/${REPO}/main/releases/latest/aware-${OS}-${ARCH}"
 else
-    DOWNLOAD_URL="https://raw.githubusercontent.com/${REPO}/main/releases/${BRANCH}/${VERSION}/aware-${OS}-${ARCH}"
+    DOWNLOAD_URL="https://raw.githubusercontent.com/${REPO}/main/releases/${VERSION}/aware-${OS}-${ARCH}"
 fi
 
-echo -e "Downloading ${BRANCH} version..."
+echo "Downloading aware..."
 echo "From: $DOWNLOAD_URL"
 
 TMP_FILE="/tmp/${BINARY_NAME}-$$"
@@ -88,4 +87,3 @@ echo "  aware --help"
 echo ""
 INSTALLED_VERSION=$(aware --version 2>/dev/null || echo 'unknown')
 echo "Installed version: $INSTALLED_VERSION"
-echo "Branch: ${BRANCH}"
