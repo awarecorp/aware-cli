@@ -34,11 +34,11 @@ case $OS in
         ;;
 esac
 
-# Determine download path
+# Determine download path (from GitHub Releases)
 if [ "$VERSION" = "latest" ]; then
-    DOWNLOAD_URL="https://raw.githubusercontent.com/${REPO}/main/releases/latest/aware-${OS}-${ARCH}"
+    DOWNLOAD_URL="https://github.com/${REPO}/releases/latest/download/aware-${OS}-${ARCH}"
 else
-    DOWNLOAD_URL="https://raw.githubusercontent.com/${REPO}/main/releases/${VERSION}/aware-${OS}-${ARCH}"
+    DOWNLOAD_URL="https://github.com/${REPO}/releases/download/${VERSION}/aware-${OS}-${ARCH}"
 fi
 
 echo "Downloading aware..."
