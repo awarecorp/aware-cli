@@ -79,23 +79,6 @@ aware update
 - Cursor
 - Claude Code
 
-## Development
-
-### Local Build
-```bash
-go mod download
-go build -o aware cmd/aware/main.go
-./aware --help
-```
-
-### Multi-platform Build
-```bash
-./scripts/build.sh v1.0.0
-```
-
-### Deployment
-See [docs/RELEASE.md](docs/RELEASE.md) for detailed deployment instructions.
-
 ## License
 
 MIT License
