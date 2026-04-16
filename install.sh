@@ -69,6 +69,15 @@ fi
 
 chmod +x "$TMP_FILE"
 
+if [ ! -d "$INSTALL_DIR" ]; then
+    if mkdir -p "$INSTALL_DIR" 2>/dev/null; then
+        :
+    else
+        echo -e "${YELLOW}Creating $INSTALL_DIR requires sudo...${NC}"
+        sudo mkdir -p "$INSTALL_DIR"
+    fi
+fi
+
 if [ -w "$INSTALL_DIR" ]; then
     mv "$TMP_FILE" "$INSTALL_DIR/$BINARY_NAME"
 else
@@ -77,6 +86,17 @@ else
 fi
 
 echo -e "${GREEN}✓ pinta installed successfully!${NC}"
+
+case ":$PATH:" in
+    *":$INSTALL_DIR:"*) ;;
+    *)
+        echo ""
+        echo -e "${YELLOW}Warning: $INSTALL_DIR is not in your PATH.${NC}"
+        echo -e "${YELLOW}Add the following line to your shell profile (e.g., ~/.zshrc, ~/.bashrc):${NC}"
+        echo "  export PATH=\"$INSTALL_DIR:\$PATH\""
+        ;;
+esac
+
 echo ""
 echo "Get started with:"
 echo "  pinta login"
